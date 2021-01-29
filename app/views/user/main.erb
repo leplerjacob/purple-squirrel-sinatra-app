@@ -10,7 +10,7 @@ Welcome, <%= @user.name%>
     <input type="text" name="company" placeholder="Company Name"><br>
     <button type="submit">Submit</button>
     </form>
-    <div class="table-responsive" style="max-height: 200px; max-width: 250px">
+    <div class="table-responsive" id="candidate-table" style="max-height: 200px; max-width: 250px">
         <table class="table table-striped">
         <thead>
             <tr>
@@ -34,25 +34,25 @@ Welcome, <%= @user.name%>
         </tbody>
         </table>
     </div>
-    <div class="table-responsive" style="max-height: 200px; max-width: 250px">
+    <div class="table-responsive" id="company-table" style="max-height: 200px; max-width: 250px">
         <table class="table table-striped">
         <thead>
             <tr>
             <th scope="col" class><p></p></th>
             <th scope="col" class><p>Company</p></th>
-            <th scope="col" class><p>Listings</p></th>
+            <th scope="col" class><p># Of Listings</p></th>
             <th scope="col" class><p>Location</p></th>
             <th scope="col" class><p># Of Employees</p></th>
             </tr>
         </thead>
         <tbody style="overflow-y:auto; max-width: 100%">
-            <% @companies.each_with_index do |candidate,index| %>          
+            <% @companies.each_with_index do |company,index| %>          
                 <tr>
                     <th scope="row"><%= index%></th>
-                    <td><%= candidate.name %></td>
-                    <td><%= candidate.skillset %></td>
-                    <td><%= candidate.location %></td>
-                    <td><%= candidate.desired_salary %></td>
+                    <td><%= company.name %></td>
+                    <td><%= company.listings.all %></td>
+                    <td><%= company.location %></td>
+                    <td><%= company.name %></td>
                 </tr>
             <% end %>
         </tbody>

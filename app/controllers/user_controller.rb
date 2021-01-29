@@ -20,6 +20,7 @@ get '/user/:id' do
     @contracts = Contract.where(recruiter_id: params[:id])
     @listings = Listing.all
     @candidates = Candidate.all
+    @companies = Company.all
     erb :'/user/main'
 end
 
