@@ -1,4 +1,4 @@
-# require_relative '../config/environment.rb'
+require_relative '../config/environment.rb'
 # require 'json'
 
 # json_listings = File.read("../fake/data/listings.json")

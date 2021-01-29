@@ -1,4 +1,4 @@
-class CreateListingsTable < ActiveRecord::Migration
+class CreateListingsTable < ActiveRecord::Migration[6.1]
   def change
     create_table :listings do |t|
       t.string :position

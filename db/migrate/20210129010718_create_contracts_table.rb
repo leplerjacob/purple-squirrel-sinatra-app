@@ -1,4 +1,4 @@
-class CreateContractsTable < ActiveRecord::Migration
+class CreateContractsTable < ActiveRecord::Migration[6.1]
   def change
     create_table :contracts do |t|
       t.references :recruiter
