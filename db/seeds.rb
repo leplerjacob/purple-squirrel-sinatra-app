@@ -1,4 +1,6 @@
 Listing.destroy_all
+Company.destroy_all
+Candidate.destroy_all
 
 listings = [{
   "date_posted": "2021-01-22",
@@ -1202,33 +1204,26 @@ listings = [{
   "last_name": "Krebs"
 }]
 
-listings.each{|listing|
-    Listing.create(position: listing["position"], description: listing["description"], salary: listing["salary"], date_posted: listing["date_posted"])      
+# binding.pry
+
+listings.map{|listing|
+    Listing.create(position: listing[:position], description: listing[:description], salary: listing[:salary], date_posted: listing[:date_posted], location: "#{listing[:city]}, #{listing[:state]}")      
 }
 
-listings[0...20].each{|company|
-    Company.create(name: company["company"], num_of_employees: rand(1_000), year_established: company["year"])
+listings[0...20].map{|company|
+    Company.create(name: company[:company], num_of_employees: rand(1_000), year_established: company[:year], location: "#{company[:city]}, #{company[:state]}")
 }
 
-listings[0...50].each{|candidates|
-    Candidate.create(name: candidate["first_name"]+" "+candidate["last_name"], skillset: candidate["skillset"], desired_salary: candidate["salary"].to_i)
+Listing.all.map{|listing|
+  company = Company.all.sample
+  listing.company = company
+  company.listings << listing
 }
 
+listings[0...50].map{|candidate|
+    Candidate.create(name: "#{candidate[:first_name]} #{candidate[:last_name]}", skillset: candidate[:skillset], desired_salary: candidate[:salary].to_i,location: "#{candidate[:city]}, #{candidate[:state]}")
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Recruiter.create(name: "Jacob Lepler", age: 29, experience: 29, gender: "male")
+Recruiter.create(name: "Jason Herrera", age: 23, experience: 23, gender: "male")
 
