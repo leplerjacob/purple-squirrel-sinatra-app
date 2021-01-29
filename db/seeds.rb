@@ -1202,17 +1202,17 @@ listings = [{
   "last_name": "Krebs"
 }]
 
-# listings.each{|listing|
-#     Listing.create(position: listing["position"], description: listing["description"], salary: listing["salary"], date_posted: listing["date_posted"])      
-# }
+listings.each{|listing|
+    Listing.create(position: listing["position"], description: listing["description"], salary: listing["salary"], date_posted: listing["date_posted"])      
+}
 
-# listings[0...20].each{|company|
-#     Company.create(name: company["company"], num_of_employees: rand(1_000), year_established: company["year"])
-# }
+listings[0...20].each{|company|
+    Company.create(name: company["company"], num_of_employees: rand(1_000), year_established: company["year"])
+}
 
-# listings[0...50].each{|candidates|
-#     Candidate.create(name: candidate["first_name"]+" "+candidate["last_name"], skillset: candidate["skillset"], desired_salary: candidate["salary"].to_i)
-# }
+listings[0...50].each{|candidates|
+    Candidate.create(name: candidate["first_name"]+" "+candidate["last_name"], skillset: candidate["skillset"], desired_salary: candidate["salary"].to_i)
+}
 
 
 
