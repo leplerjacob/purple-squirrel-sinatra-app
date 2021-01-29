@@ -1,0 +1,30 @@
+
+App Name: Purple Scuirrel
+
+
+Routes:
+
+	-Home: '/'
+		- Welcome
+		- Navigation
+			- Login
+			- SignUp
+			- About
+		- Some other text
+
+	-Login '/login'
+		- User inputs username, password
+		- submit
+		** Optional sign if you don't have login
+
+	-User/homepage: '/user/id'
+		- shows at start:displays list of open listings
+			- #Show Top Salaried Jobs
+			- #Show all companies who have listings
+			- #Show all candidates looking jobs
+		- Can create a contract
+		- #show all contracts
+		- #Show active contract
+		- #show expired contracts
+
+		- #logout
