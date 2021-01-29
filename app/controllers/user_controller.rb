@@ -24,6 +24,19 @@ get '/user/:id' do
     erb :'/user/main'
 end
 
+get 'user/contract' do
+    binding.pry
+end
+
+
+
+
+
+
+
+
+
+
 get '/orders' do
     @orders= Order.all
     erb :'/orders/all'

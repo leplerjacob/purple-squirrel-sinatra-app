@@ -3,13 +3,15 @@ Welcome, <%= @user.name%>
 
 <div class="container" style="display:flex; flex-direction: column; justify-content: space-between">
     Create Contract<br>
-    <form action="/contract" method="post">
+    <form action="/contract" method="POST">
+        <input type="hidden" name="recruiter" value="<%= @user.id%>">
         <label for="candidate">Candidate</label><br>
         <input type="text" name="candidate" placeholder="Candidate's Full Name"><br>
         <label for="company">Company</label><br>
         <input type="text" name="company" placeholder="Company Name"><br>
         <button type="submit">Submit</button>
     </form>
+
     <h2 style="padding: 20px">Candidates</h2>
     <div class="table-responsive" id="candidate-table" style="max-height: 240px;">
         <table class="table table-striped">
