@@ -1,56 +1,58 @@
 
 Welcome, <%= @user.name%>
 
-<div class="container" style="display:flex; justify-content: space-between">
-    <form action="#" method="get">
+<div class="container" style="display:flex; flex-direction: column; justify-content: space-between">
     Create Contract<br>
-    <label for="candidate">Candidate</label><br>
-    <input type="text" name="candidate" placeholder="Candidate's Full Name"><br>
-    <label for="company">Company</label><br>
-    <input type="text" name="company" placeholder="Company Name"><br>
-    <button type="submit">Submit</button>
+    <form action="/contract" method="post">
+        <label for="candidate">Candidate</label><br>
+        <input type="text" name="candidate" placeholder="Candidate's Full Name"><br>
+        <label for="company">Company</label><br>
+        <input type="text" name="company" placeholder="Company Name"><br>
+        <button type="submit">Submit</button>
     </form>
-    <div class="table-responsive" id="candidate-table" style="max-height: 200px; max-width: 250px">
+    <h2 style="padding: 20px">Candidates</h2>
+    <div class="table-responsive" id="candidate-table" style="max-height: 240px;">
         <table class="table table-striped">
-        <thead>
+        <thead style="position: sticky; top: 0px; background:white;">
             <tr>
-            <th scope="col" class><p></p></th>
-            <th scope="col" class><p>Name</p></th>
-            <th scope="col" class><p>Skill</p></th>
-            <th scope="col" class><p>Location</p></th>
-            <th scope="col" class><p>Desired Salary</p></th>
+            <th scope="col" class></th>
+            <th scope="col" class>Name</th>
+            <th scope="col" class>Skill</th>
+            <th scope="col" class>Location</th>
+            <th scope="col" class>Desired Salary</th>
             </tr>
         </thead>
-        <tbody style="overflow-y:auto; max-width: 100%">
+        <tbody style="overflow-y:auto; max-width: 100%;">
             <% @candidates.each_with_index do |candidate,index| %>          
                 <tr>
-                    <th scope="row"><%= index%></th>
+                    <th scope="row"><%= index + 1%></th>
                     <td><%= candidate.name %></td>
                     <td><%= candidate.skillset %></td>
                     <td><%= candidate.location %></td>
-                    <td><%= candidate.desired_salary %></td>
+                    <td><%= candidate.desired_salary.to_i.round(-3).to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %></td>
                 </tr>
             <% end %>
         </tbody>
         </table>
     </div>
-    <div class="table-responsive" id="company-table" style="max-height: 200px; max-width: 250px">
+    <h2 style="padding: 20px">Companies</h2>
+    <div class="table-responsive" id="company-table" style="max-height: 240px;">
         <table class="table table-striped">
-        <thead>
+        <thead style="position: sticky; top: 0px; background:white">
             <tr>
-            <th scope="col" class><p></p></th>
-            <th scope="col" class><p>Company</p></th>
-            <th scope="col" class><p># Of Listings</p></th>
-            <th scope="col" class><p>Location</p></th>
-            <th scope="col" class><p># Of Employees</p></th>
+            <th scope="col" class></th>
+            <th scope="col" class>Company</th>
+            <th scope="col" class># Of Listings</th>
+            <th scope="col" class>Location</th>
+            <th scope="col" class># Of Employees</th>
             </tr>
         </thead>
-        <tbody style="overflow-y:auto; max-width: 100%">
+        <tbody style="overflow-y:auto; max-width: 100%;">
             <% @companies.each_with_index do |company,index| %>          
                 <tr>
-                    <th scope="row"><%= index%></th>
+                    <th scope="row"><%= index + 1%></th>
                     <td><%= company.name %></td>
-                    <td><%= company.listings.all %></td>
+                    <td><%= company.listings.count %></td>
                     <td><%= company.location %></td>
                     <td><%= company.name %></td>
                 </tr>
@@ -60,8 +62,8 @@ Welcome, <%= @user.name%>
     </div>
 </div>
 
+    <h2 style="padding: 20px">Listings</h2>
 <div class="table-responsive" style="max-height: 500px">
-<button></button>
 <table class="table table-striped">
   <thead style="position: sticky; top: 0px; background:white">
     <tr style="display: sticky">
@@ -72,13 +74,13 @@ Welcome, <%= @user.name%>
       <th scope="col">Date Posted</th>
     </tr>
   </thead>
-  <tbody style="overflow-y:auto;">
+  <tbody style="overflow-y:auto; margin: 25px 0px">
     <% @listings.each_with_index do |listing,index| %>          
         <tr>
-            <th scope="row"><%= index%></th>
+            <th scope="row"><%= index + 1%></th>
             <td><%= listing.position %></td>
             <td><%= listing.company.name %></td>
-            <td><%= listing.salary %></td>
+            <td><%= listing.salary.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse %></td>
             <td><%= listing.date_posted %></td>
         </tr>
     <% end %>
