@@ -34,6 +34,30 @@ Welcome, <%= @user.name%>
         </tbody>
         </table>
     </div>
+    <div class="table-responsive" style="max-height: 200px; max-width: 250px">
+        <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col" class><p></p></th>
+            <th scope="col" class><p>Company</p></th>
+            <th scope="col" class><p>Listings</p></th>
+            <th scope="col" class><p>Location</p></th>
+            <th scope="col" class><p># Of Employees</p></th>
+            </tr>
+        </thead>
+        <tbody style="overflow-y:auto; max-width: 100%">
+            <% @companies.each_with_index do |candidate,index| %>          
+                <tr>
+                    <th scope="row"><%= index%></th>
+                    <td><%= candidate.name %></td>
+                    <td><%= candidate.skillset %></td>
+                    <td><%= candidate.location %></td>
+                    <td><%= candidate.desired_salary %></td>
+                </tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div>
 </div>
 
 <div class="table-responsive" style="max-height: 500px">
