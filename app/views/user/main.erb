@@ -1,0 +1,63 @@
+
+Welcome, <%= @user.name%>
+
+<div class="container" style="display:flex; justify-content: space-between">
+    <form action="#" method="get">
+    Create Contract<br>
+    <label for="candidate">Candidate</label><br>
+    <input type="text" name="candidate" placeholder="Candidate's Full Name"><br>
+    <label for="company">Company</label><br>
+    <input type="text" name="company" placeholder="Company Name"><br>
+    <button type="submit">Submit</button>
+    </form>
+    <div class="table-responsive" style="max-height: 200px; max-width: 250px">
+        <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col" class><p></p></th>
+            <th scope="col" class><p>Name</p></th>
+            <th scope="col" class><p>Skill</p></th>
+            <th scope="col" class><p>Location</p></th>
+            <th scope="col" class><p>Desired Salary</p></th>
+            </tr>
+        </thead>
+        <tbody style="overflow-y:auto; max-width: 100%">
+            <% @candidates.each_with_index do |candidate,index| %>          
+                <tr>
+                    <th scope="row"><%= index%></th>
+                    <td><%= candidate.name %></td>
+                    <td><%= candidate.skillset %></td>
+                    <td><%= candidate.location %></td>
+                    <td><%= candidate.desired_salary %></td>
+                </tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="table-responsive" style="max-height: 500px">
+<button></button>
+<table class="table table-striped">
+  <thead style="position: sticky; top: 0px; background:white">
+    <tr style="display: sticky">
+      <th scope="col"></th>
+      <th scope="col">Position</th>
+      <th scope="col">Company</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Date Posted</th>
+    </tr>
+  </thead>
+  <tbody style="overflow-y:auto;">
+    <% @listings.each_with_index do |listing,index| %>          
+        <tr>
+            <th scope="row"><%= index%></th>
+            <td><%= listing.position %></td>
+            <td><%= listing.company.name %></td>
+            <td><%= listing.salary %></td>
+            <td><%= listing.date_posted %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

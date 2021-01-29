@@ -1226,6 +1226,6 @@ listings[0...50].map{|candidate|
     Candidate.create(name: "#{candidate[:first_name]} #{candidate[:last_name]}", skillset: candidate[:skillset], desired_salary: candidate[:salary].to_i,location: "#{candidate[:city]}, #{candidate[:state]}")
 }
 
-Recruiter.create(name: "Jacob Lepler", age: 29, experience: 29, gender: "male")
-Recruiter.create(name: "Jason Herrera", age: 23, experience: 23, gender: "male")
+Recruiter.create(name: "Jacob Lepler", age: 29, experience: 29, gender: "male", username: "username", password: "password")
+Recruiter.create(name: "Jason Herrera", age: 23, experience: 23, gender: "male", username: "jason", password: "herrera")
 

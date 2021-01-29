@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_29_030239) do
+ActiveRecord::Schema.define(version: 2021_01_29_132003) do
 
   create_table "candidates", force: :cascade do |t|
     t.string "name"
@@ -56,3 +56,8 @@ ActiveRecord::Schema.define(version: 2021_01_29_030239) do
     t.integer "age"
     t.integer "experience"
     t.string "gender"
+    t.string "username"
+    t.string "password"
+  end
+
+end
