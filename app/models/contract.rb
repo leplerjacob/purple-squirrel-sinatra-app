@@ -1,6 +1,5 @@
 class Contract < ApplicationRecord
-    belongs_to :recruiters
-	belongs_to :companys
-	belongs_to :candidates
-
+    belongs_to :recruiter
+	belongs_to :company
+	belongs_to :candidate
 end

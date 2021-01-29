@@ -27,13 +27,7 @@ ActiveRecord::Schema.define(version: 2021_01_29_030239) do
     t.string "name"
     t.string "num_of_employees"
     t.string "year_established"
-    t.integer "listing_id"
-    t.integer "candidate_id"
-    t.integer "contract_id"
     t.string "location"
-    t.index ["candidate_id"], name: "index_companies_on_candidate_id"
-    t.index ["contract_id"], name: "index_companies_on_contract_id"
-    t.index ["listing_id"], name: "index_companies_on_listing_id"
   end
 
   create_table "contracts", force: :cascade do |t|
@@ -62,12 +56,3 @@ ActiveRecord::Schema.define(version: 2021_01_29_030239) do
     t.integer "age"
     t.integer "experience"
     t.string "gender"
-    t.integer "contract_id"
-    t.integer "candidate_id"
-    t.integer "company_id"
-    t.index ["candidate_id"], name: "index_recruiters_on_candidate_id"
-    t.index ["company_id"], name: "index_recruiters_on_company_id"
-    t.index ["contract_id"], name: "index_recruiters_on_contract_id"
-  end
-
-end

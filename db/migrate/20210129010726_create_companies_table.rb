@@ -4,9 +4,6 @@ class CreateCompaniesTable < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :num_of_employees
       t.string :year_established
-      t.references :listing
-      t.references :candidate
-      t.references :contract
     end
   end
 end

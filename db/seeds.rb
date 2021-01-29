@@ -1,6 +1,8 @@
 Listing.destroy_all
 Company.destroy_all
 Candidate.destroy_all
+Recruiter.destroy_all
+Contract.destroy_all
 
 listings = [{
   "date_posted": "2021-01-22",

@@ -5,9 +5,6 @@ class CreateRecruitersTable < ActiveRecord::Migration[6.1]
       t.integer :age
       t.integer :experience
       t.string :gender
-      t.references :contract
-      t.references :candidate
-      t.references :company
     end
   end
 end
